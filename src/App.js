@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Posts from './Components/Posts'
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -14,7 +13,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+
+import Posts from './Components/Posts';
+import Home from './Components/Home';
 
 function Copyright() {
   return (
@@ -67,45 +69,21 @@ function App() {
   const classes = useStyles();
 
   return (
-    <div className="App">
-      <React.Fragment>
-        <CssBaseline />
+    <Router>
+      <div>
         <AppBar position="relative">
           <Toolbar>
-            <Button color="inherit">Login</Button>
+              <Button color="inherit" component={Link} to={'/'}>Home</Button>
+              <Button color="inherit" component={Link} to={'/posts'}>Requests</Button>
+            {/* <Link to={'/posts'} className="nav-link">Posts</Link> */}
           </Toolbar>
         </AppBar>
-        <main>
-          {/* Hero unit */}
-          <div className={classes.heroContent}>
-            <Container maxWidth="sm">
-              <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                Album layout
-            </Typography>
-              <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                Something short and leading about the collection below—its contents, the creator, etc.
-                Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-                entirely.
-            </Typography>
-              <div className={classes.heroButtons}>
-                <Grid container spacing={2} justify="center">
-                  <Grid item>
-                    <Button variant="contained" color="primary">
-                      Main call to action
-                  </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button variant="outlined" color="primary">
-                      Secondary action
-                  </Button>
-                  </Grid>
-                </Grid>
-              </div>
-            </Container>
-          </div>
-        </main>
-      </React.Fragment>
-    </div>
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/posts" component={Posts} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
