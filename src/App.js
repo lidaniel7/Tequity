@@ -17,6 +17,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 import Posts from './Components/Posts';
 import Home from './Components/Home';
+import RequestPage from './Components/RequestPage'
 
 function Copyright() {
   return (
@@ -74,13 +75,15 @@ function App() {
         <AppBar position="relative">
           <Toolbar>
               <Button color="inherit" component={Link} to={'/'}>Home</Button>
-              <Button color="inherit" component={Link} to={'/posts'}>Requests</Button>
+              <Button color="inherit" component={Link} to={'/posts'}>Make a Donation</Button>
+              <Button color="inherit" component={Link} to={'/request'}>Request a Donation</Button>
             {/* <Link to={'/posts'} className="nav-link">Posts</Link> */}
           </Toolbar>
         </AppBar>
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/posts" component={Posts} />
+          <Route path="/request" component={RequestPage} />
         </Switch>
       </div>
     </Router>

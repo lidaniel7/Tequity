@@ -11,7 +11,12 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
+
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+
+// import Posts from './Components/Posts';
+// import Home from './Components/Home';
+import RequestPage from './RequestPage'
 
 
 function Copyright() {
@@ -64,7 +69,8 @@ function Copyright() {
     const classes = useStyles();
   
     return (
-        <div className="App">
+        <Router>
+            <div className="App">
           <React.Fragment>
             <CssBaseline />
             <main>
@@ -87,7 +93,7 @@ function Copyright() {
                     </Button>
                       </Grid>
                       <Grid item>
-                        <Button variant="outlined" color="primary">
+                        <Button variant="outlined" color="primary" component={Link} to={'/requestPage'}>
                           Request a Donation
                     </Button>
                       </Grid>
@@ -97,7 +103,11 @@ function Copyright() {
               </div>
             </main>
           </React.Fragment>
+          <Switch>
+          <Route path="/request" component={RequestPage} />
+        </Switch>
         </div>
+        </Router>
     );
   }
   
