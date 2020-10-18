@@ -64,8 +64,6 @@ const Popup = (props) => {
     setOpen(false);
   };
 
-  const { personRequest } = props
-
 
   return (
     <div>
@@ -74,26 +72,25 @@ const Popup = (props) => {
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+            {props.personRequest.firstName + " "}
+            {props.personRequest.lastName}
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-            in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+            Email: {props.personRequest.email}
           </Typography>
           <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-            lacus vel augue laoreet rutrum faucibus dolor auctor.
+            Phone: {props.personRequest.number}
           </Typography>
           <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-            scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-            auctor fringilla.
+            Location: {props.personRequest.city + ", " + props.personRequest.originalState}
+          </Typography>
+          <br />
+          <Typography gutterBottom>
+            {props.personRequest.description}
           </Typography>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose} color="primary">
-            Save changes
-          </Button>
         </DialogActions>
       </Dialog>
     </div>

@@ -17,6 +17,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 // import Posts from './Components/Posts';
 // import Home from './Components/Home';
 import RequestPage from './RequestPage'
+import Posts from './Posts'
 
 
 function Copyright() {
@@ -88,12 +89,12 @@ function Copyright() {
                   <div className={classes.heroButtons}>
                     <Grid container spacing={2} justify="center">
                       <Grid item>
-                        <Button variant="contained" color="primary">
+                        <Button variant="contained" color="primary" component={Link} to={'/posts'}>
                           Make a Donation
                     </Button>
                       </Grid>
                       <Grid item>
-                        <Button variant="outlined" color="primary" component={Link} to={'/requestPage'}>
+                        <Button variant="outlined" color="primary" component={Link} to={'/request'}>
                           Request a Donation
                     </Button>
                       </Grid>
@@ -105,6 +106,7 @@ function Copyright() {
           </React.Fragment>
           <Switch>
           <Route path="/request" component={RequestPage} />
+          <Route path="/posts" component={Posts} />
         </Switch>
         </div>
         </Router>

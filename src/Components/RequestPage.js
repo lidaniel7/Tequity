@@ -6,6 +6,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 import axios from 'axios'
+import Box from '@material-ui/core/Box';
+
 
 
 
@@ -91,24 +93,37 @@ const RequestPage = () => {
             cost: cost,
             city: city,
             state: finalState,
+            originalState: state,
             country: country,
             email: email,
             number: number,
             description: description
         }
+
+        setFirstName('')
+        setLastName('')
+        setSchool('')
+        setLaptops('')
+        setCost('')
+        setCity('')
+        setState('')
+        setCountry('')
+        setEmail('')
+        setNumber('')
+        setDescription('')
         
         const addRequest = axios.post('http://localhost:3001/request', requestObject)
-        return addRequest.then(response => 
-            console.log(response.data)
-        )
+            .then(res => console.log(res.data));
+
     }
 
 
     return (
-        <React.Fragment>
+        <Box m={8}>
+            <React.Fragment>
             <form onSubmit={submitRequest}>
             <Typography variant="h6" gutterBottom>
-                Shipping address
+                Submit a Request
             </Typography>
             <Grid container spacing={3} ml={3}>
                 <Grid item xs={12} sm={4} ml={3}>
@@ -202,7 +217,7 @@ const RequestPage = () => {
                         required
                         id="email"
                         name="email"
-                        label="email"
+                        label="Email"
                         fullWidth
                         autoComplete="shipping country"
                         onChange={handleEmail}
@@ -219,20 +234,23 @@ const RequestPage = () => {
                         onChange={handleNumber}
                     />
                 </Grid>
-                <Grid item xs={20} sm={2}>
+                <Grid item xs>
                     <TextField 
-                        id="standard-multiline-static"
                         label="Description"
-                        multiline
-                        rows={4}
+                        multiline={true}
+                        rows={6}
                         fullWidth={true}
+                        size="medium"
                         onChange={handleDescription}
                     />
                 </Grid>
-                <Button type="submit">Submit</Button>
             </Grid>
+            <br />
+            <br />
+            <Button size="medium" variant="contained" color="primary" fullwidth={true} type="submit">Submit</Button>
             </form>
         </React.Fragment>
+        </Box>
     );
 }
 
