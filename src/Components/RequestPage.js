@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
+import axios from 'axios'
 
 
 
@@ -82,7 +83,11 @@ const RequestPage = () => {
             number: number,
             description: description
         }
-        console.log(requestObject)
+        
+        const addRequest = axios.post('http://localhost:3001/request', requestObject)
+        return addRequest.then(response => 
+            console.log(response.data)
+        )
     }
 
 
