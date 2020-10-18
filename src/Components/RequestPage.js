@@ -110,8 +110,8 @@ const RequestPage = () => {
             <Typography variant="h6" gutterBottom>
                 Shipping address
             </Typography>
-            <Grid container spacing={3}>
-                <Grid item xs={12} sm={4}>
+            <Grid container spacing={3} ml={3}>
+                <Grid item xs={12} sm={4} ml={3}>
                     <TextField
                         required
                         id="school"
@@ -219,18 +219,18 @@ const RequestPage = () => {
                         onChange={handleNumber}
                     />
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
+                <Grid item xs={20} sm={2}>
+                    <TextField 
                         id="standard-multiline-static"
                         label="Description"
                         multiline
                         rows={4}
-                        defaultValue="Default Value"
+                        fullWidth={true}
                         onChange={handleDescription}
                     />
                 </Grid>
+                <Button type="submit">Submit</Button>
             </Grid>
-            <Button type="submit">Submit</Button>
             </form>
         </React.Fragment>
     );

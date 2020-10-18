@@ -14,6 +14,10 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import axios from 'axios';
 
+import Popup from './Popup';
+
+let uniqid = require('uniqid')
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -115,7 +119,7 @@ export default function Posts() {
           {/* End hero unit */}
           <Grid container spacing={4}>
             {posts.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+              <Grid item key={uniqid()} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
@@ -131,12 +135,7 @@ export default function Posts() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
+                    <Popup ml={3} object={card}/>
                   </CardActions>
                 </Card>
               </Grid>
