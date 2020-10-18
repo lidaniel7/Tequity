@@ -49,7 +49,11 @@ const RequestPage = () => {
     }
 
     const handleState = (event) => {
-        setState(event.target.value)
+        if (event.target.value.length === 2) {
+            setState(event.target.value[0].toLowerCase() + "-" + event.target.value[1].toLowerCase())
+        } else {
+            setState(event.target.value.toLowerCase())
+        }
     }
 
     const handleCountry = (event) => {
@@ -70,6 +74,15 @@ const RequestPage = () => {
 
     const submitRequest = (event) => {
         event.preventDefault()
+
+        let finalState;
+        let splitState = state.split(" ")
+        if (splitState.length === 2) {
+            finalState = splitState[0].toLowerCase() + "-" + splitState[1].toLowerCase()
+        } else {
+            finalState = splitState[0].toLowerCase()
+        }
+
         const requestObject = {
             firstName: firstName,
             lastName: lastName,
@@ -77,7 +90,7 @@ const RequestPage = () => {
             laptops: laptops,
             cost: cost,
             city: city,
-            state: state,
+            state: finalState,
             country: country,
             email: email,
             number: number,
@@ -165,7 +178,13 @@ const RequestPage = () => {
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <TextField id="state" name="state" label="State/Province/Region" fullWidth onChange={handleState}/>
+                    <TextField 
+                        id="state" 
+                        name="state" 
+                        label="State/Province/Region" 
+                        fullWidth
+                        onChange={handleState}
+                    />
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <TextField
