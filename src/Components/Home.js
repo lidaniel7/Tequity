@@ -14,6 +14,8 @@ import Container from '@material-ui/core/Container';
 
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
+import PaymentPage from './PaymentPage'
+
 // import Posts from './Components/Posts';
 // import Home from './Components/Home';
 import RequestPage from './RequestPage'
@@ -23,13 +25,13 @@ import Posts from './Posts'
 function Copyright() {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://material-ui.com/">
-          Your Website
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
+            {'Copyright © '}
+            <Link color="inherit" href="https://material-ui.com/">
+                Tequity
+             </Link>{' '}
+            {new Date().getFullYear()}
+            {'.'}
+        </Typography>
     );
   }
   
@@ -79,12 +81,12 @@ function Copyright() {
               <div className={classes.heroContent}>
                 <Container maxWidth="sm">
                   <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                    Album layout
+                    Tequity
               </Typography>
                   <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                    Something short and leading about the collection below—its contents, the creator, etc.
-                    Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-                    entirely.
+                    Our mission is to make technology more accessible for schoolchildren everywhere. We connect
+                    generous donors willing to donate laptops or money with teachers who can distribute these computers
+                    to their students who really need them.
               </Typography>
                   <div className={classes.heroButtons}>
                     <Grid container spacing={2} justify="center">
