@@ -1,3 +1,5 @@
+https://www.youtube.com/watch?v=f6PouMSR4xQ&ab_channel=DanielLi
+
 backend can be found here: https://github.com/lidaniel7/Tequity-backend
 
 
